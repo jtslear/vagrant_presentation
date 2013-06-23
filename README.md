@@ -12,6 +12,8 @@ In this presentation I will cover all aspects of my presentation by checkout the
   * Discussion on the vagrant init command and the created configuration file
  * step_four
   * Create first virtual machine
+ * step_five
+  * easily destroy and create a new machine, show some custom settings with the vagrant file
 
 ##Resources##
  * [Vagrant](http://www.vagrantup.com/)
