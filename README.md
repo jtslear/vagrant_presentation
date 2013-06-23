@@ -10,6 +10,8 @@ In this presentation I will cover all aspects of my presentation by checkout the
 ##Available Branches##
  * step_three
   * Discussion on the vagrant init command and the created configuration file
+ * step_four
+  * Create first virtual machine
 
 ##Resources##
  * [Vagrant](http://www.vagrantup.com/)
