@@ -13,5 +13,16 @@ Vagrant.configure("2") do |config|
     end
     config.vm.box = "centos_base"
     config.vm.hostname = "testweb1"
+    config.vm.network :forwarded_port, guest: 80, host: 8080
+    config.cache.auto_detect = true
+    config.vm.provision :chef_solo do |chef|
+      chef.add_recipe "selinux::permissive"
+      chef.add_recipe "apache2"
+      chef.add_recipe "apache2::mod_rewrite"
+      chef.add_recipe "apache2::mod_proxy_http"
+      chef.add_recipe "apache2::mod_proxy_balancer"
+      chef.add_recipe "apache2::mod_proxy"
+      chef.add_recipe "firewall_disable"
+    end
   end
 end

@@ -7,6 +7,11 @@ In this presentation I will cover all aspects of my presentation by checkout the
 
     git checkout step_three
 
+When you get to `step_six`, submodules are included in this repo, please ensure you run the following commands after switching to that branch, or starting off with master:
+
+    git submodule init
+    git submodule update
+
 ##Available Branches##
  * step_three
   * Discussion on the vagrant init command and the created configuration file
@@ -14,6 +19,8 @@ In this presentation I will cover all aspects of my presentation by checkout the
   * Create first virtual machine
  * step_five
   * easily destroy and create a new machine, show some custom settings with the vagrant file
+ * step_six
+  * learn one of many methods to provision a virtual machine
 
 ##Resources##
  * [Vagrant](http://www.vagrantup.com/)

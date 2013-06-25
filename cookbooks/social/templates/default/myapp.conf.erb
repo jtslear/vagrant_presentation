@@ -1,0 +1,31 @@
+<VirtualHost *:80>
+#ServerName domain.com
+#ServerAlias www.domain.com
+
+# Point this to your public folder of teambox
+DocumentRoot <%= node['my_app']['path'] %>/public
+
+RewriteEngine On
+
+<Proxy balancer://unicornservers>
+BalancerMember http://127.0.0.1:3001
+</Proxy>
+
+# Redirect all non-static requests to thin
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+RewriteRule ^/(.*)$ balancer://unicornservers%{REQUEST_URI} [P,QSA,L]
+
+ProxyPass / balancer://unicornservers/
+ProxyPassReverse / balancer://unicornservers/
+ProxyPreserveHost on
+
+<Proxy *>
+Order deny,allow
+Allow from all
+</Proxy>
+
+# Custom log file locations
+ErrorLog  <%= node['my_app']['path'] %>/log/error.log
+CustomLog <%= node['my_app']['path'] %>/log/access.log combined
+
+</VirtualHost>
