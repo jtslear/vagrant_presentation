@@ -21,6 +21,8 @@ When you get to `step_six`, submodules are included in this repo, please ensure 
   * easily destroy and create a new machine, show some custom settings with the vagrant file
  * step_six
   * learn one of many methods to provision a virtual machine
+ * step_seven
+  * configure and utilize a multi machine configuration
 
 ##Resources##
  * [Vagrant](http://www.vagrantup.com/)
